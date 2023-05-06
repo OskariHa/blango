@@ -5,7 +5,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from blog.forms import CommentForm
 import logging
 
-
 logger = logging.getLogger(__name__)
 
 # Create your views here.
