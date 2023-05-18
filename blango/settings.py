@@ -61,7 +61,8 @@ class Dev(Configuration):
         "allauth.socialaccount", 
         "allauth.socialaccount.providers.google",
         "rest_framework",
-        "rest_framework.authtoken"
+        "rest_framework.authtoken",
+        "drf_yasg"
     ]
 
     MIDDLEWARE = [
@@ -143,6 +144,13 @@ class Dev(Configuration):
         "DEFAULT_PERMISSION_CLASSES": [
             "rest_framework.permissions.IsAuthenticatedOrReadOnly"
         ],
+    }
+
+    SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
     }
 
     SITE_ID = 1
