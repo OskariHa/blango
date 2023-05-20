@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericRelation
+from versatileimagefield.fields import VersatileImageField, PPOIField
 
 
 class Comment(models.Model):
@@ -36,7 +37,12 @@ class Post(models.Model):
   comments = GenericRelation(Comment)
 
   def __str__(self):
-      return self.title   
+      return self.title
+      
+  hero_image = VersatileImageField(
+      upload_to="hero_images", ppoi_field="ppoi", null=True, blank=True
+  )
+  ppoi = PPOIField(null=True, blank=True)   
 
 class AuthorProfile(models.Model):
     user = models.OneToOneField(

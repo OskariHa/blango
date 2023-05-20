@@ -65,7 +65,8 @@ class Dev(Configuration):
         "rest_framework",
         "rest_framework.authtoken",
         "drf_yasg",
-        "django_filters"
+        "django_filters",
+        "versatileimagefield"
     ]
 
     MIDDLEWARE = [
@@ -186,6 +187,9 @@ class Dev(Configuration):
     ACCOUNT_USERNAME_REQUIRED = False
     ACCOUNT_AUTHENTICATION_METHOD = "email"
 
+    MEDIA_ROOT = BASE_DIR / "media"
+    MEDIA_URL = "/media/"
+    
     # Internationalization
     # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
